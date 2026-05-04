@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "Room": {
+      "title": "Game Room",
+      "description": "Represents a multiplayer chess match.",
+      "type": "object",
+      "properties": {
+        "fen": { "type": "string" },
+        "whitePlayer": { "type": "string" },
+        "blackPlayer": { "type": "string" },
+        "status": { "type": "string", "enum": ["waiting", "active", "finished"] },
+        "turn": { "type": "string", "enum": ["w", "b"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "lastMoveAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["fen", "whitePlayer", "status", "turn"]
+    },
+    "Message": {
+      "title": "Chat Message",
+      "description": "A message sent in a game room.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "text", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/rooms/{roomId}": {
+      "schema": "Room",
+      "description": "Global collection for game matches."
+    },
+    "/rooms/{roomId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Messages sent within a specific game room."
+    }
+  }
+}

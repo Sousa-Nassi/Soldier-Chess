@@ -1,0 +1,9 @@
+{
+  "apiKey": "fake-api-key",
+  "authDomain": "fake-auth-domain",
+  "projectId": "fake-project-id",
+  "storageBucket": "fake-storage-bucket",
+  "messagingSenderId": "fake-messaging-sender-id",
+  "appId": "fake-app-id",
+  "firestoreDatabaseId": "(default)"
+}
